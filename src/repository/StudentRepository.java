@@ -2,13 +2,22 @@ package repository;
 
 import model.Student;
 
-public class StudentRepository extends InMemoryRepository<Student>{
+import java.util.Objects;
+
+public class StudentRepository extends InMemoryRepository<Student> {
 
     public StudentRepository() {
+        super();
     }
 
     @Override
     public Student update(Student obj) {
-        return null;
+        for (Student student : repoList)
+            if (Objects.equals(student.getPersonId(), obj.getPersonId())) {
+                repoList.remove(student);
+                repoList.add(obj);
+                return null;
+            }
+        return obj;
     }
 }
