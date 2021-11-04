@@ -2,6 +2,11 @@ package repository;
 
 import java.util.List;
 
+/**
+ * declare create, getAll, update, delete functions
+ *
+ * @param <T>
+ */
 public interface ICrudRepository<T> {
 
     T create(T obj);

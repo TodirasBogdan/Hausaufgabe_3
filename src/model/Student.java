@@ -1,6 +1,7 @@
 package model;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Student extends Person {
 
@@ -30,6 +31,9 @@ public class Student extends Person {
     }
 
 
+    /**
+     * print student and their details
+     */
     @Override
     public String toString() {
         return "Student{" +
@@ -40,4 +44,25 @@ public class Student extends Person {
                 '}';
     }
 
+    /**
+     * check if two students are equal
+     *
+     * @param o is a student object
+     * @return true if two students are equal, otherwise false
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student student)) return false;
+        if (!super.equals(o)) return false;
+        return getTotalCredits() == student.getTotalCredits() && Objects.equals(getEnrolledCourses(), student.getEnrolledCourses());
+    }
+
+    /**
+     * @return a hashcode of student
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getTotalCredits(), getEnrolledCourses());
+    }
 }

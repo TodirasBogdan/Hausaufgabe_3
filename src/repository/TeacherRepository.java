@@ -10,6 +10,12 @@ public class TeacherRepository extends InMemoryRepository<Teacher> {
         super();
     }
 
+    /**
+     * implement update from InMemoryRepository for TeacherRepository
+     *
+     * @param obj is a new Teacher object
+     * @return obj if obj is not in TeacherRepository, otherwise update teacher and return null
+     */
     @Override
     public Teacher update(Teacher obj) {
         for (Teacher teacher : repoList)

@@ -3,14 +3,17 @@ package repository;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * implement create, getAll, delete functions from ICrudRepository
+ *
+ * @param <T>
+ */
 public abstract class InMemoryRepository<T> implements ICrudRepository<T> {
-
 
     protected List<T> repoList;
 
     public InMemoryRepository() {
         this.repoList = new ArrayList<>();
-
     }
 
     @Override
